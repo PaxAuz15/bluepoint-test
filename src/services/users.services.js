@@ -5,6 +5,9 @@ export function getUsers() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+        },
+        body:{
+          "name":"mar"
         }
       };
 
