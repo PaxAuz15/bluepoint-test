@@ -4,6 +4,8 @@ import { Toolbar, Edit } from '@syncfusion/ej2-react-grids';
 import { getUsers } from "../services/users.services"
 import { EditUserForm } from "./components/edit-user-form"
 import { Card } from "react-bootstrap"
+import { DataManager, UrlAdaptor} from "@syncfusion/ej2-data"
+
 
 const Users = () => {
 
@@ -47,6 +49,9 @@ const Users = () => {
 
     const [rowData, setRowData] = useState({});
 
+    let data = new DataManager({
+        
+    })
     return (
 
         <Card className="mt-3">
