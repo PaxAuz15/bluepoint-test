@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { GridComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-grids';
+import { GridComponent, ColumnsDirective, ColumnDirective, Inject } from '@syncfusion/ej2-react-grids';
+import { Toolbar, Edit } from '@syncfusion/ej2-react-grids';
 import { getUsers } from "../services/users.services"
+import { EditUserForm } from "./components/edit-user-form"
+import { Card } from "react-bootstrap"
 
 const Users = () => {
 
+    // const toolbar = new Toolbar(['Edit', 'Update', 'Cancel'])
+    let editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true };
+    let searchSettings = { fields: ['nombres', 'primer_apellido', 'segundo_apellido'] }
     const [state, setState] = useState({
         reload: false,
         loading: false
     })
     const [dataUsers, setDataUsers] = useState([])
-
 
     useEffect(() => {
         setState(old => ({ ...old, loading: true }))
@@ -29,32 +34,45 @@ const Users = () => {
         {
             field: 'primer_apellido',
             headerText: 'Apellido Paterno',
-            width: '40%',
+            width: '30%',
             headerTextAlign: 'Center'
         },
         {
             field: 'segundo_apellido',
             headerText: 'Apellido Materno',
-            width: '40%',
+            width: '30%',
             headerTextAlign: 'Center'
         }
     ]
 
+    const [rowData, setRowData] = useState({});
 
     return (
-        <div>
-            <GridComponent dataSource={dataUsers} className='table'>
-                <ColumnsDirective>
-                    <ColumnDirective field='usuario_id' headerText='Id' width='10%' headerTextAlign='Center' />
-                    <ColumnDirective field='usuario_login' headerText='Login' width='25%' headerTextAlign='Center' />
-                    <ColumnDirective field='nombres' headerText='Nombres' width='50%' headerTextAlign='Center' />
-                    <ColumnDirective columns={columnaApellidos} headerText='Apellidos' width='50%' headerTextAlign='Center' />
-                    <ColumnDirective field='codigo_estado' headerText='Estado' width='15%' headerTextAlign='Center' />
-                    <ColumnDirective field='fecha_actualizacion' headerText='Actualizacion' width='25%' headerTextAlign='Center' />
-                </ColumnsDirective>
-            </GridComponent>
 
-        </div>
+        <Card className="mt-3">
+            <Card.Body>
+                <GridComponent
+                    dataSource={dataUsers}
+                    className='table'
+                    rowSelected={setRowData}
+                    toolbar={['Edit', 'Update', 'Cancel', 'Search']}
+                    editSettings={editSettings}
+                    searchSettings={searchSettings}
+                >
+                    <ColumnsDirective>
+                        <ColumnDirective field='usuario_id' headerText='Id' width='20%' headerTextAlign='Center' textAlign='Center' />
+                        <ColumnDirective field='usuario_login' headerText='Login' width='25%' headerTextAlign='Center' />
+                        <ColumnDirective field='nombres' headerText='Nombres' width='30%' headerTextAlign='Center' />
+                        <ColumnDirective columns={columnaApellidos} headerText='Apellidos' width='40%' headerTextAlign='Center' />
+                        <ColumnDirective field='codigo_estado' headerText='Estado' width='15%' headerTextAlign='Center' />
+                        <ColumnDirective field='fecha_actualizacion' headerText='Actualizacion' width='25%' headerTextAlign='Center' />
+                    </ColumnsDirective>
+                    <Inject services={[Edit, Toolbar]} />
+                </GridComponent>
+
+                <EditUserForm rowData={rowData} setRowData={setRowData} state={state} setState={setState} />
+            </Card.Body>
+        </Card >
     )
 }
 

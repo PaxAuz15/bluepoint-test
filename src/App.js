@@ -1,11 +1,12 @@
 import './App.css';
 import Users from "./pages/users"
+import { Container } from "react-bootstrap"
 
 function App() {
   return (
-    <div>
+    <Container>
       <Users />
-    </div>
+    </Container>
   );
 }
 
