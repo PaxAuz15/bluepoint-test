@@ -7,8 +7,6 @@ import { Card } from "react-bootstrap"
 
 const Users = () => {
 
-    // const toolbar = new Toolbar(['Edit', 'Update', 'Cancel'])
-    let editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true };
     let searchSettings = { fields: ['nombres', 'primer_apellido', 'segundo_apellido'] }
     const [state, setState] = useState({
         reload: false,
@@ -55,10 +53,7 @@ const Users = () => {
                     dataSource={dataUsers}
                     className='table'
                     rowSelected={setRowData}
-                    toolbar={['Edit', 'Update', 'Cancel', 'Search']}
-                    editSettings={editSettings}
-                    searchSettings={searchSettings}
-                >
+                    toolbar={['Search']}>
                     <ColumnsDirective>
                         <ColumnDirective field='usuario_id' headerText='Id' width='20%' headerTextAlign='Center' textAlign='Center' />
                         <ColumnDirective field='usuario_login' headerText='Login' width='25%' headerTextAlign='Center' />
@@ -67,7 +62,7 @@ const Users = () => {
                         <ColumnDirective field='codigo_estado' headerText='Estado' width='15%' headerTextAlign='Center' />
                         <ColumnDirective field='fecha_actualizacion' headerText='Actualizacion' width='25%' headerTextAlign='Center' />
                     </ColumnsDirective>
-                    <Inject services={[Edit, Toolbar]} />
+                    <Inject services={[Toolbar]} />
                 </GridComponent>
 
                 <EditUserForm rowData={rowData} setRowData={setRowData} state={state} setState={setState} />
