@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bluepoint-test/static/css/main.35374671.chunk.css",
+    "main.js": "/bluepoint-test/static/js/main.72357543.chunk.js",
+    "main.js.map": "/bluepoint-test/static/js/main.72357543.chunk.js.map",
+    "runtime-main.js": "/bluepoint-test/static/js/runtime-main.e9edf97b.js",
+    "runtime-main.js.map": "/bluepoint-test/static/js/runtime-main.e9edf97b.js.map",
+    "static/css/2.150d169a.chunk.css": "/bluepoint-test/static/css/2.150d169a.chunk.css",
+    "static/js/2.577a559c.chunk.js": "/bluepoint-test/static/js/2.577a559c.chunk.js",
+    "static/js/2.577a559c.chunk.js.map": "/bluepoint-test/static/js/2.577a559c.chunk.js.map",
+    "static/js/3.3abcc5de.chunk.js": "/bluepoint-test/static/js/3.3abcc5de.chunk.js",
+    "static/js/3.3abcc5de.chunk.js.map": "/bluepoint-test/static/js/3.3abcc5de.chunk.js.map",
+    "index.html": "/bluepoint-test/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/bluepoint-test/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.35374671.chunk.css.map": "/bluepoint-test/static/css/main.35374671.chunk.css.map",
+    "static/js/2.577a559c.chunk.js.LICENSE.txt": "/bluepoint-test/static/js/2.577a559c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e9edf97b.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.577a559c.chunk.js",
+    "static/css/main.35374671.chunk.css",
+    "static/js/main.72357543.chunk.js"
+  ]
+}
