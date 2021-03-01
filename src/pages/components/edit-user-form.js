@@ -19,7 +19,8 @@ export const EditUserForm = ({ rowData, setRowData, state, setState }) => {
     }, [rowData.data, reset])
 
     const onSubmit = async data => {
-        const dataTemp = { ...userData, ...data, fecha_actualizacion, accion: "Actualizar", segundo_apellido: data.segundo_apellido }
+        const dataTemp = { ...userData, ...data, fecha_actualizacion, accion: "Actualizar", segundo_apellido: data.segundo_apellido, usuario_id, usuario_login  }
+        console.log(dataTemp)
         try {
             await updateUser(dataTemp)
             setState(old => ({...old, reload: !state.reload}))
